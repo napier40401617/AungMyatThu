@@ -1,5 +1,13 @@
 body{
 	font-family:arial;
+    background:lavender;
+    
+}
+
+
+div.bg{
+    border-style: dotted;
+    background-color: pink;
 }
 img.tiny{
     width: 20px;
@@ -26,7 +34,37 @@ a{
 	text-decoration: none;
 }
 
-.nav_button{
-    border:solid gray thin;
+.edit-button{
+    border:solid darkgray thin;
+    background-color: lightgray;
+    padding:15px 32px ;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
     bottom: auto;
-    }
+
+
+}
+ .create-button{
+    border:solid darkgray thin;
+    background-color: lightgray;
+    padding:15px 32px ;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    bottom: auto;
+
+ }
+ .delete-button{
+    border:solid darkgray thin;
+    background-color: lightgray;
+    padding:15px 32px ;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    bottom: auto;
+
+
+ }
+
+

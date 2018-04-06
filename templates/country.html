@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<link rel='stylesheet' href='/static/style.css'>
+	<link rel='stylesheet' href='../static/style.css'>
 </head>
 	<body>
 		<h1>{{c['name']}}</h1>
@@ -15,15 +15,32 @@
 				<div><a href='../continent/{{c.continent}}'>{{c['continent']}}</a></div>
 			</div>
 			<div>
+			<div>Area</div>
+			<div>{{c['area']}}
+			</div>
+			</div>
+			<div>
 				<div>Population</div>
-				<div>{{"{:,.0f}".format(c['population'])}}</div>
+				<div>{{c['population']}}</div>
 			</div>
 			<div>
 				<div>GDP (million $)</div>
-				<div>{{ "{:,.0f}".format(c['gdp']/1000000) }}</div>
+				<div>{{"{:,.0f}".format(c['gdp']/1000000)}}</div>
+			</div>
+			<div>
+				<div>TLD</div>
+				<div>{{c['tld']}}</div>
 			</div>
 		</div>
 		<img src="/static/flags/{{c['tld']}}.gif" class='big'>
-		<div> <a href='/delete/{{c.name}}'> Delete </a> </div>
+		
+		<a href="/createcountry" class="create-button">Create</a>
+			
+	
+		
+		<a href='/editcountryByName/{{c.name}}' class='edit-button'>Edit</a>
+		
+	 	<a href='/delete/{{c.name}}' class='delete-button'> Delete </a> 
+	 	
 	</body>
 </html>

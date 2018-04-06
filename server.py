@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
+
 
 w = json.load(open("worldl.json"))
 for c in w:
@@ -50,7 +51,6 @@ def countryByNamePage(n):
 		c = c)
 
 @app.route('/delete/<n>')
-
 def deleteCountryPage(n):
 	i=0
 	for c in w:
@@ -66,9 +66,61 @@ def deleteCountryPage(n):
 		w = w[0:page_size])
 #all deleted country will be back on the list after restarting the server
 
-app.run(host='0.0.0.0', port=5645, debug=True)
+
+@app.route('/editcountryByName/<n>')
+def editcountryByNamePage(n):
+	c = None
+	for x in w:
+		if x['name'] == n:
+			c = x
+	return render_template(
+		'country-edit.html',
+		c = c)
+
+@app.route('/updatecountrybyname')
+def updatecountryByNamePage():
+	n=request.args.get('name')
+	c = None
+	for x in w:
+		if x['name'] == n:
+			c = x
+	c['capital']=request.args.get('capital')
+	c['continent']=request.args.get('continent')
+	c['area']=int (request.args.get('area'))
+	c['population']=int(request.args.get('population'))
+	c['gdp']=int(request.args.get('gdp'))
+	c['tld']=str(request.args.get('tld'))
+	return render_template(
+		'country.html',
+		c = c)
+
+@app.route('/createcountry')
+def createcountryByNamePage():
+	c=None
+	return render_template(
+		'create-country.html',
+		c = c)
 
 
+@app.route('/savecountry')
+def savecountryByNamePage():
+
+	n=request.args.get('name')
+	c = {}
+	c['name']=n
+	c['capital']=str(request.args.get('capital'))
+	c['continent']=str(request.args.get('continent'))
+	c['area']=float(request.args.get('area'))
+	c['population']=int(request.args.get('population'))
+	c['gdp']=int(request.args.get('gdp'))
+	c['tld']=str(request.args.get('tld'))
+	w.append(c)
+	
+	return render_template(
+		'country.html',
+		c = c)
+
+app.run(host='0.0.0.0', port=5610, debug=True)
 
 
 

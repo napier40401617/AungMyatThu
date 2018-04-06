@@ -2,8 +2,59 @@
 <html>
 <head>
 	<link rel='stylesheet' href='/static/style.css'>
+	<style>
+	body{
+	font-family:arial;
+	
+
+
+}
+
+img.tiny{
+    width: 15px;
+    border: solid thin grey;	
+}
+img.big {
+    width: 200px;
+    border: solid thin grey;
+    position: absolute;
+    right: 1ex;
+    top: 1ex;
+}
+
+.properties div div{
+	display:inline-block;
+}
+.properties div div:first-child{
+	width:20ex;
+}
+.properties div div:last-child{
+	font-weight: bold;
+}
+a{
+	text-decoration: none;
+}
+
+.nav_button{
+    border:solid darkgray thin;
+    background-color: lightgray;
+    padding:15px 32px ;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    bottom: auto;
+
+    }
+
+
+
+
+
+
+	</style>
 </head>
 	<body>
+	
 		<h1>World Factbook</h1>
 		<div>There are {{w|length}} countries in in the world.</div>
 		<ul>
@@ -18,6 +69,10 @@
 		</div>
 		<div class='nav_button'>
 			<a href='/begin/{{page_number+page_size}}'>Next Page</a>
+		</div>
+		<div class='nav_button'>
+			<a href="/createcountry">Create</a>
+			
 		</div>
 	</body>
 </html>
