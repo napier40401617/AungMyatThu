@@ -20,6 +20,18 @@ img.big {
     right: 1ex;
     top: 1ex;
 }
+ul#sort a:link{
+    background-color: #1144CC;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    list-style-type: none;
+}
+ul#sort a:hover{
+    background-color: yellow;
+}
 
 .properties div div{
 	display:inline-block;
