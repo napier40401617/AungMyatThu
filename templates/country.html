@@ -25,7 +25,7 @@
 			</div>
 			<div>
 				<div>GDP (million $)</div>
-				<div>{{"{:,.0f}".format(c['gdp']/1000000)}}</div>
+				<div>{{"{:,.2f}".format(c['gdp']/1000000)}}</div>
 			</div>
 			<div>
 				<div>TLD</div>
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<img src="/static/flags/{{c['tld']}}.gif" class='big'>
-		
+		 
 		<a href="/createcountry" class="create-button">Create</a>
 			
 	

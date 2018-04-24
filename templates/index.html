@@ -57,6 +57,11 @@ a{
 	
 		<h1>World Factbook</h1>
 		<div>There are {{w|length}} countries in in the world.</div>
+		<div>
+			{% for s in lota %}
+			<a href="/alphabetic/{{s}}">{{s}}</a>
+			{% endfor %}
+		</div>
 		<ul>
 			{% for c in w %}
 			<li><a href='/countryByName/{{c.name}}'>
