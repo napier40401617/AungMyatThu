@@ -105,8 +105,8 @@ def updatecountryByNamePage():
 	c['continent']=request.args.get('continent')
 	c['area']=int (request.args.get('area'))
 	c['population']=int(request.args.get('population'))
-	c['gdp']=float(request.args.get('gdp'))
-	c['tld']=str(request.args.get('tld'))
+	c['gdp']=int(request.args.get('gdp'))
+	c['tld']=request.args.get('tld')
 	return render_template(
 		'country.html',
 		c = c)

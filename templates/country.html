@@ -16,20 +16,20 @@
 			</div>
 			<div>
 			<div>Area</div>
-			<div>{{c['area']}}
-			</div>
+			<div>{{"{:,.0f}".format(c['area'])}}</div>
 			</div>
 			<div>
 				<div>Population</div>
-				<div>{{c['population']}}</div>
+				<div>{{"{:,.0f}".format(c['population'])}}</div>
 			</div>
 			<div>
 				<div>GDP (million $)</div>
-				<div>{{"{:,.2f}".format(c['gdp']/1000000)}}</div>
+				<div>{{"{:,.0f}".format(c['gdp']//1000000)}}</div>
 			</div>
 			<div>
 				<div>TLD</div>
 				<div>{{c['tld']}}</div>
+
 			</div>
 		</div>
 		<img src="/static/flags/{{c['tld']}}.gif" class='big'>
