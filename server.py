@@ -28,16 +28,6 @@ def beginPage(b):
 		page_size = page_size,
 		lota=lota
 		)
-
-@app.route('/continent/<a>')
-def continentPage(a):
-	cl = [c for c in w if c['continent']==a]
-	return render_template(
-		'continent.html',
-		length_of_cl = len(cl),
-		cl = cl,
-		a = a
-		)
 @app.route('/alphabetic/<a>')
 def alphabeticPage(a):
 	cl = [c for c in w if c['name'][0]==a]
@@ -48,7 +38,6 @@ def alphabeticPage(a):
 		a = a,
 		lota=lota
 		)
-
 @app.route('/country/<i>')
 def countryPage(i):
 	return render_template(
@@ -65,6 +54,19 @@ def countryByNamePage(n):
 		'country.html',
 		c = c)
 
+
+@app.route('/continent/<a>')
+def continentPage(a):
+	cl = [c for c in w if c['continent']==a]
+	return render_template(
+		'continent.html',
+		length_of_cl = len(cl),
+		cl = cl,
+		a = a
+		)
+
+
+
 @app.route('/delete/<n>')
 def deleteCountryPage(n):
 	i=0
@@ -78,7 +80,8 @@ def deleteCountryPage(n):
 	return render_template('index.html',
 		page_number=0,
 		page_size=page_size,
-		w = w[0:page_size])
+		w = w[0:page_size],
+		lota=lota)
 #all deleted country will be back on the list after restarting the server
 
 
@@ -105,8 +108,8 @@ def updatecountryByNamePage():
 	c['continent']=request.args.get('continent')
 	c['area']=int (request.args.get('area'))
 	c['population']=int(request.args.get('population'))
-	c['gdp']=int(request.args.get('gdp'))
-	c['tld']=request.args.get('tld')
+	c['gdp']=float(request.args.get('gdp'))
+	c['tld']=str(request.args.get('tld'))
 	return render_template(
 		'country.html',
 		c = c)

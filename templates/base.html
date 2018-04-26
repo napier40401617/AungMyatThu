@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sort Country Name With Alphabetic</title>
+	<link rel='stylesheet' href='/static/style.css'>
+</head>
+<body>
+<h1>World Factbook</h1>
+		
+		<div>
+			<form>
+				<ul id="sort">
+			{% for c in lota %}
+			<a href="/alphabetic/{{c}}"><li>{{c}}</li></a>
+			{% endfor %}
+			</ul>
+			</form>
+		</div>
+		<div>
+			{% block content %}
+			{% endblock %}
+		</div>
+</body>
+</html>
